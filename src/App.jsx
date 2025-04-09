@@ -4,6 +4,8 @@ import Features from "./components/Features";
 import Header from "./components/header";
 import Hero from "./components/hero";
 import Service from "./components/service";
+import Partner from "./components/partner";
+
 
 function App() {
   return (

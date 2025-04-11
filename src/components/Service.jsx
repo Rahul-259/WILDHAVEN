@@ -1,5 +1,5 @@
-import { Leaf, Globe, Flower, SailboatIcon as Boat, ArrowRight } from "lucide-react"
-import { Link } from "lucide-react"
+import { Leaf, Globe, Flower, SailboatIcon as Boat, ArrowRight } from "lucide-react";
+import {Link} from "lucide-react";
 
 export default function Service() {
   return (

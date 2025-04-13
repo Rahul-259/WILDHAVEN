@@ -1,11 +1,12 @@
-import About from "./components/about";
+import About from "./components/About";
 import Cta from "./components/cta";
 import Features from "./components/Features";
-import Header from "./components/header";
-import Hero from "./components/hero";
-import Service from "./components/service";
-import Partner from "./components/partner";
-
+import Header from "./components/Header";
+import Hero from "./components/Hero";
+import Service from "./components/Service";
+import Partner from "./components/Partner";
+import Donate from "./components/Donate";
+import DonationModal from './components/DonationModal';
 
 function App() {
   return (
@@ -18,14 +19,16 @@ function App() {
           <About />
           <Cta/>
           <Service/>
+          <Partner />
+          <Donate />
           {/* <Hero />
           <Features />
           <About />
           <Cta />
           <Service />
-          <Donate />
+          
           <Testimonials />
-          <Partner />
+          
           <Event />
           <InstaPost /> */}
         </article>

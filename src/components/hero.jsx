@@ -19,8 +19,9 @@ export default function Hero() {
         </h2>
 
         <p className="hero-text">
-          Sit amet consectetur adipiscing elit, sed do eiusmod tempor incididunt
-          ut labore et dolore magna aliqua suspendisse ultrices gravida.
+          When we choose to give love, we become the guardians of Earth's most
+          vulnerable creatures—each gesture of kindness echoes in the forests,
+          oceans, and skies.
         </p>
 
         <button className="btn btn-primary">

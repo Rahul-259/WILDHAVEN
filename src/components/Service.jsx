@@ -1,12 +1,27 @@
-import { Leaf, Globe, Flower, SailboatIcon as Boat, ArrowRight } from "lucide-react";
-import {Link} from "lucide-react";
+import {
+  Leaf,
+  Globe,
+  Flower,
+  SailboatIcon as Boat,
+  ArrowRight,
+} from "lucide-react";
+import { Link } from "lucide-react";
 
 export default function Service() {
   return (
-    <section className="section service" id="service" style={{ backgroundImage: "url('/images/service-map.png')" }}>
+    <section
+      className="section service"
+      id="service"
+      style={{ backgroundImage: "url('/images/service-map.png')" }}
+    >
       <div className="container">
         <p className="section-subtitle">
-          <img src="/images/subtitle-img-green.png" width="32" height="7" alt="Wavy line" />
+          <img
+            src="src\assets\subtitle-img-green.png"
+            width="32"
+            height="7"
+            alt="Wavy line"
+          />
           <span>What We Do</span>
         </p>
 
@@ -23,12 +38,14 @@ export default function Service() {
 
               <h3 className="h3 card-title">Save Nature</h3>
 
-              <p className="card-text">Tempor incididunt ut labores dolore magna suspene</p>
+              <p className="card-text">
+                Tempor incididunt ut labores dolore magna suspene
+              </p>
 
-              <Link href="#" className="btn-link">
+              <a href="#" className="btn-link">
                 <span>Read More</span>
                 <ArrowRight />
-              </Link>
+              </a>
             </div>
           </li>
 
@@ -40,12 +57,14 @@ export default function Service() {
 
               <h3 className="h3 card-title">Save Ecology</h3>
 
-              <p className="card-text">Tempor incididunt ut labores dolore magna suspene</p>
+              <p className="card-text">
+                Tempor incididunt ut labores dolore magna suspene
+              </p>
 
-              <Link href="#" className="btn-link">
+              <a href="#" className="btn-link">
                 <span>Read More</span>
                 <ArrowRight />
-              </Link>
+              </a>
             </div>
           </li>
 
@@ -57,7 +76,9 @@ export default function Service() {
 
               <h3 className="h3 card-title">Tree Plantation</h3>
 
-              <p className="card-text">Tempor incididunt ut labores dolore magna suspene</p>
+              <p className="card-text">
+                Tempor incididunt ut labores dolore magna suspene
+              </p>
 
               <Link href="#" className="btn-link">
                 <span>Read More</span>
@@ -74,7 +95,9 @@ export default function Service() {
 
               <h3 className="h3 card-title">Clear Ocean</h3>
 
-              <p className="card-text">Tempor incididunt ut labores dolore magna suspene</p>
+              <p className="card-text">
+                Tempor incididunt ut labores dolore magna suspene
+              </p>
 
               <Link href="#" className="btn-link">
                 <span>Read More</span>
@@ -85,5 +108,5 @@ export default function Service() {
         </ul>
       </div>
     </section>
-  )
+  );
 }

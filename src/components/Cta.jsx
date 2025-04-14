@@ -1,5 +1,5 @@
-import { Heart } from "lucide-react"
-import { Image } from "lucide-react"
+import { Heart } from "lucide-react";
+
 export default function Cta() {
   return (
     <section className="section cta">
@@ -14,10 +14,15 @@ export default function Cta() {
         </div>
 
         <figure className="cta-banner">
-          <Image src="/images/cta-banner.jpg" width={520} height={228} alt="Fox" className="img-cover" />
+          <img
+            src="src\assets\cta-banner.jpg"
+            width={520}
+            height={228}
+            alt="Fox"
+            className="img-cover"
+          />
         </figure>
       </div>
     </section>
-  )
+  );
 }
-

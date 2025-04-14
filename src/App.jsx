@@ -1,26 +1,32 @@
-import About from "./components/About";
+import About from "./components/about";
+import React, { useState } from "react";
 import Cta from "./components/cta";
 import Features from "./components/Features";
-import Header from "./components/Header";
-import Hero from "./components/Hero";
+import Header from "./components/header";
+import Hero from "./components/hero";
 import Service from "./components/Service";
-import Partner from "./components/Partner";
+import Partner from "./components/partner";
 import Donate from "./components/Donate";
-import DonationModal from './components/DonationModal';
+import DonationModal from "./components/DonationModal";
 
 function App() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
   return (
     <>
-      <Header />
+      <Header onDonateClick={openModal} />
       <main>
         <article>
           <Hero />
           <Features />
           <About />
-          <Cta/>
-          <Service/>
+          <Cta />
+          <Service />
           <Partner />
-          <Donate />
+          <Donate onDonateClick={openModal} />
+
           {/* <Hero />
           <Features />
           <About />
@@ -34,6 +40,7 @@ function App() {
         </article>
       </main>
       {/* <Footer /> */}
+      <DonationModal isOpen={isModalOpen} onClose={closeModal} />
     </>
   );
 }

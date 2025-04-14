@@ -1,6 +1,6 @@
-import { Heart } from "lucide-react"
+import { Heart } from "lucide-react";
 
-export default function Donate() {
+export default function Donate({ onDonateClick }) {
   return (
     <section className="section donate" id="donate">
       <div className="container">
@@ -9,8 +9,8 @@ export default function Donate() {
             <li key={item}>
               <div className="donate-card">
                 <figure className="card-banner">
-                  <Image
-                    src={`/images/donate-${item}.jpg`}
+                  <img
+                    src={`src/assets/donate-${item}.jpg`}
                     width={520}
                     height={325}
                     alt="Elephant"
@@ -59,7 +59,7 @@ export default function Donate() {
                     </p>
                   </div>
 
-                  <button className="btn btn-secondary">
+                  <button className="btn btn-secondary" onClick={onDonateClick}>
                     <span>Donation</span>
                     <Heart />
                   </button>
@@ -70,6 +70,5 @@ export default function Donate() {
         </ul>
       </div>
     </section>
-  )
+  );
 }
-

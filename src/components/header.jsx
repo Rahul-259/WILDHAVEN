@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X, Search, Heart } from "lucide-react";
 
-export default function Header() {
+export default function Header({ onDonateClick }) {
   const [isNavActive, setIsNavActive] = useState(false);
   const [isHeaderActive, setIsHeaderActive] = useState(false);
 
@@ -186,7 +186,7 @@ export default function Header() {
             <Search />
           </button>
 
-          <button className="btn btn-primary">
+          <button className="btn btn-primary" onClick={onDonateClick}>
             <span>Donation</span>
             <Heart />
           </button>

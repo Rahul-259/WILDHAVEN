@@ -80,10 +80,10 @@ export default function Service() {
                 Tempor incididunt ut labores dolore magna suspene
               </p>
 
-              <Link href="#" className="btn-link">
+              <a href="#" className="btn-link">
                 <span>Read More</span>
                 <ArrowRight />
-              </Link>
+              </a>
             </div>
           </li>
 
@@ -99,10 +99,10 @@ export default function Service() {
                 Tempor incididunt ut labores dolore magna suspene
               </p>
 
-              <Link href="#" className="btn-link">
+              <a href="#" className="btn-link">
                 <span>Read More</span>
                 <ArrowRight />
-              </Link>
+              </a>
             </div>
           </li>
         </ul>

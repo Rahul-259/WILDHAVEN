@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 // Import images
-import subtitleImgGreen from '../assets/images/subtitle-img-green.png';
-import testiAvatar from '../assets/images/testi-avatar.png';
-import testiBanner from '../assets/images/testi-banner.jpg';
+import subtitleImgGreen from "../assets/subtitle-img-green.png";
+import testiAvatar from "../assets/testi-avatar.png";
+import testiBanner from "../assets/testi-banner.jpg";
 
 function Testimonials() {
   return (
@@ -17,11 +17,22 @@ function Testimonials() {
         </h2>
         <div className="testi-card">
           <figure className="card-avatar">
-            <img src={testiAvatar} width="60" height="60" loading="lazy" alt="David S. Neuman" />
+            <img
+              src={testiAvatar}
+              width="60"
+              height="60"
+              loading="lazy"
+              alt="David S. Neuman"
+            />
           </figure>
           <div>
             <blockquote className="testi-text">
-              Sed ut perspiciatis unde omnis iste natus error voluptatem accusantium doloremque laudantium totam rem aperiam eaquesa quae abillo inventore veritatis quasi architecto beatae vitae dicta sunt explicabo enimpsam voluptatem
+              Supporting Wildvine has been one of the most meaningful choices
+              I've made. Knowing that my contribution helps rescue,
+              rehabilitate, and protect vulnerable wildlife fills me with hope.
+              Every update, every rescued life, reminds me that compassion truly
+              makes a difference. Wildvine isn’t just a charity—it’s a movement
+              of love for the wild.
             </blockquote>
             <h3 className="testi-name">David S. Neuman</h3>
             <p className="testi-title">Business Manager</p>
@@ -29,7 +40,14 @@ function Testimonials() {
         </div>
       </div>
       <figure className="testi-banner">
-        <img src={testiBanner} width="960" height="846" loading="lazy" alt="Rhinoceros" className="img-cover" />
+        <img
+          src={testiBanner}
+          width="960"
+          height="846"
+          loading="lazy"
+          alt="Rhinoceros"
+          className="img-cover"
+        />
       </figure>
     </section>
   );

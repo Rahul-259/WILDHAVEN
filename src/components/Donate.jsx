@@ -1,16 +1,16 @@
 import { Heart } from "lucide-react";
-
-export default function Donate({ onDonateClick }) {
+const Animals = ["elephant", "rhino", "tiger", "koala"];
+export default function Donate({ onDonateClick, setDonatingTo }) {
   return (
     <section className="section donate" id="donate">
       <div className="container">
         <ul className="donate-list">
-          {[1, 2, 3, 4].map((item) => (
-            <li key={item}>
+          {Animals.map((item, i) => (
+            <li key={i}>
               <div className="donate-card">
                 <figure className="card-banner">
                   <img
-                    src={`src/assets/donate-${item}.jpg`}
+                    src={`src/assets/donate-${i + 1}.jpg`}
                     width={520}
                     height={325}
                     alt="Elephant"
@@ -59,7 +59,13 @@ export default function Donate({ onDonateClick }) {
                     </p>
                   </div>
 
-                  <button className="btn btn-secondary" onClick={onDonateClick}>
+                  <button
+                    className="btn btn-secondary"
+                    onClick={() => {
+                      onDonateClick();
+                      setDonatingTo(item);
+                    }}
+                  >
                     <span>Donation</span>
                     <Heart />
                   </button>

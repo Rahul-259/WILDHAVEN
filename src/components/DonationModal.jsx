@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../DonationModal.css"; // We'll create this CSS file next
 
-function DonationModal({ isOpen, onClose }) {
+function DonationModal({ isOpen, onClose, donatingTo }) {
   const [amount, setAmount] = useState(50); // Default donation amount
   const [customAmount, setCustomAmount] = useState("");
   const [name, setName] = useState("");
@@ -40,7 +40,7 @@ function DonationModal({ isOpen, onClose }) {
     setName("");
     setEmail("");
   };
-
+  console.log(donatingTo);
   return (
     <div className="modal-overlay" onClick={onClose}>
       {" "}
@@ -51,7 +51,7 @@ function DonationModal({ isOpen, onClose }) {
         <button className="modal-close-btn" onClick={onClose}>
           <ion-icon name="close-outline"></ion-icon>
         </button>
-        <h2 className="h3 modal-title">Make a Donation</h2>
+        <h2 className="h3 modal-title">Make a Donation To {donatingTo}</h2>
         <p className="modal-subtitle">Your contribution saves lives!</p>
         <form onSubmit={handleSubmit}>
           <div className="amount-selection">

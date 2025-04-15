@@ -1,20 +1,29 @@
-
-import { Heart, ArrowRight } from "lucide-react"
+import { Heart, ArrowRight } from "lucide-react";
 
 export default function Event() {
   const events = [
     { month: "Jan", date: "05" },
     { month: "Feb", date: "23" },
     { month: "Mar", date: "27" },
-  ]
+  ];
 
   return (
     <section className="section event" id="event">
       <div className="container">
         <p className="section-subtitle">
-          <Image src="/images/subtitle-img-green.png" width={32} height={7} alt="Wavy line" />
+          <img
+            src="src\assets\subtitle-img-green.png"
+            width={32}
+            height={7}
+            alt="Wavy line"
+          />
           <span>Event & Program</span>
-          <Image src="/images/subtitle-img-green.png" width={32} height={7} alt="Wavy line" />
+          <img
+            src="src\assets\subtitle-img-green.png"
+            width={32}
+            height={7}
+            alt="Wavy line"
+          />
         </p>
 
         <h2 className="h2 section-title">
@@ -25,7 +34,10 @@ export default function Event() {
           {events.map((event, index) => (
             <li key={index}>
               <div className="event-card">
-                <time className="card-time" dateTime={`${event.month.toLowerCase()}-${event.date}`}>
+                <time
+                  className="card-time"
+                  dateTime={`${event.month.toLowerCase()}-${event.date}`}
+                >
                   <span className="month">{event.month}</span>
                   <span className="date">{event.date}</span>
                 </time>
@@ -33,8 +45,12 @@ export default function Event() {
                 <div className="wrapper">
                   <div className="card-content">
                     <p className="card-subtitle">Ocean Water</p>
-                    <h3 className="card-title">Far from the countries Vokalia and Consonantia 2022</h3>
-                    <p className="card-text">Sit amet consectetur adipiscing elit sed do eiusmod tempor</p>
+                    <h3 className="card-title">
+                      Far from the countries Vokalia and Consonantia 2022
+                    </h3>
+                    <p className="card-text">
+                      Sit amet consectetur adipiscing elit sed do eiusmod tempor
+                    </p>
                   </div>
 
                   <button className="btn btn-white">
@@ -53,6 +69,5 @@ export default function Event() {
         </button>
       </div>
     </section>
-  )
+  );
 }
-

@@ -1,6 +1,6 @@
 import { Heart } from "lucide-react";
 
-export default function Hero() {
+export default function Hero({ onDonateClick }) {
   return (
     <section className="hero" id="home">
       <div className="container">
@@ -24,7 +24,7 @@ export default function Hero() {
           oceans, and skies.
         </p>
 
-        <button className="btn btn-primary">
+        <button className="btn btn-primary" onClick={onDonateClick}>
           <span>Donation</span>
           <Heart />
         </button>

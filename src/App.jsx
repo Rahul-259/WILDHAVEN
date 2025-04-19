@@ -12,30 +12,38 @@ import Footer from "./components/Footer";
 import Testimonials from "./components/Testimonials";
 import Event from "./components/Event";
 import InstaPost from "./components/InstaPost";
+import Headermodal from "./components/Headermodal";
+import { DonationProvider } from "./components/DonateContext";
 
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isHeaderModalOpen, setIsHeaderModalOpen] = useState(false);
   const [donatingTo, setDonatingTo] = useState("");
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
   return (
     <>
-      <Header onDonateClick={openModal} />
-      <main>
-        <article>
-          <Hero />
-          <Features />
-          <About />
-          <Cta />
-          <Service />
-          <Partner />
-          <Donate onDonateClick={openModal} setDonatingTo={setDonatingTo} />
+      <DonationProvider>
+        <Header onDonateClick={() => setIsHeaderModalOpen(true)} />
+        <main>
+          <article>
+            <Hero onDonateClick={() => setIsHeaderModalOpen(true)} />
+            <Headermodal
+              isOpen={isHeaderModalOpen}
+              onClose={() => setIsHeaderModalOpen(false)}
+            />
+            <Features />
+            <About />
+            <Cta />
+            <Service />
+            <Partner />
+            <Donate onDonateClick={openModal} setDonatingTo={setDonatingTo} />
 
-          <Event />
-          <Testimonials />
-          <InstaPost />
+            <Event />
+            <Testimonials />
+            <InstaPost />
 
-          {/* <Hero />
+            {/* <Hero />
           <Features />
           <About />
           <Cta />
@@ -45,15 +53,16 @@ function App() {
           
           <Event />
           <InstaPost /> */}
-        </article>
-      </main>
-      <Footer />
+          </article>
+        </main>
+        <Footer />
 
-      <DonationModal
-        isOpen={isModalOpen}
-        onClose={closeModal}
-        donatingTo={donatingTo}
-      />
+        <DonationModal
+          isOpen={isModalOpen}
+          onClose={closeModal}
+          donatingTo={donatingTo}
+        />
+      </DonationProvider>
     </>
   );
 }

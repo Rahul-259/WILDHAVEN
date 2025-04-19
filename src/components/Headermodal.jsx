@@ -1,55 +1,84 @@
 import React, { useState } from "react";
-import "../DonationModal.css";
 import { useDonation } from "./DonateContext";
+import "../DonationModal.css";
 
-function DonationModal({ isOpen, onClose, donatingTo }) {
+function HeaderModal({ isOpen, onClose, donatingTo = "general" }) {
   const [amount, setAmount] = useState(50); // Default donation amount
   const [customAmount, setCustomAmount] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [animalCategory, setAnimalCategory] = useState(""); // Animal category state
 
   const { addDonation } = useDonation();
 
+  // Map from animal categories to animal types in the donation data
+  const categoryToAnimal = {
+    "Big Cats (Lions, Tigers)": "tiger",
+    "Marine Life (Dolphins, Whales)": "dolphin",
+    "Primates (Gorillas, Orangutans)": "gorilla",
+    "Birds (Eagles, Parrots)": "bird",
+    "Reptiles (Turtles, Snakes)": "turtle",
+    "Endangered Species": "rhino", // Assume rhino for endangered species
+    "Domestic Animals (Cats, Dogs)": "dog",
+    "Farm Animals (Rescue)": "farm",
+    "Wildlife Rehabilitation": "koala", // Assume koala for wildlife rehab
+  };
+
+  // List of animal categories
+  const animalCategories = [
+    "Big Cats (Lions, Tigers)",
+    "Marine Life (Dolphins, Whales)",
+    "Primates (Gorillas, Orangutans)",
+    "Birds (Eagles, Parrots)",
+    "Reptiles (Turtles, Snakes)",
+    "Endangered Species",
+    "Domestic Animals (Cats, Dogs)",
+    "Farm Animals (Rescue)",
+    "Wildlife Rehabilitation",
+  ];
+
   if (!isOpen) {
-    return null; // Don't render the modal if it's not open
+    return null;
   }
 
   const handleAmountClick = (value) => {
     setAmount(value);
-    setCustomAmount(""); // Clear custom amount when preset is clicked
+    setCustomAmount("");
   };
 
   const handleCustomAmountChange = (e) => {
     const value = e.target.value;
-    // Allow only numbers
     if (/^\d*$/.test(value)) {
       setCustomAmount(value);
-      setAmount(Number(value)); // Update the main amount state
+      setAmount(Number(value));
     }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Add donation to context
-    addDonation(donatingTo, amount);
+    // Figure out which animal to assign the donation to
+    const animalToUpdate = categoryToAnimal[animalCategory] || "elephant";
 
-    // Logging for demonstration
+    // Add donation to context
+    addDonation(animalToUpdate, amount);
+
     console.log(
-      `Donation Submitted: Amount: $${amount}, Name: ${name}, Email: ${email}, Animal: ${donatingTo}`
+      `Donation Submitted: Amount: $${amount}, Name: ${name}, Email: ${email}, Animal Category: ${animalCategory}`
     );
 
     alert(
-      `Thank you for your $${amount} donation to save the ${donatingTo}, ${name}!`
+      `Thank you for your $${amount} donation to support ${animalCategory}, ${name}!`
     );
 
-    onClose(); // Close the modal after submission
+    onClose();
 
     // Reset form fields
     setAmount(50);
     setCustomAmount("");
     setName("");
     setEmail("");
+    setAnimalCategory("");
   };
 
   return (
@@ -58,10 +87,8 @@ function DonationModal({ isOpen, onClose, donatingTo }) {
         <button className="modal-close-btn" onClick={onClose}>
           <ion-icon name="close-outline"></ion-icon>
         </button>
-        <h2 className="h3 modal-title">
-          Make a Donation To Save the {donatingTo}
-        </h2>
-        <p className="modal-subtitle">Your contribution saves lives!</p>
+        <h2 className="h3 modal-title">Make a Donation To Wildlife</h2>
+        <p className="modal-subtitle">Your contribution saves animal lives!</p>
         <form onSubmit={handleSubmit}>
           <div className="amount-selection">
             <p>Select Amount:</p>
@@ -90,6 +117,24 @@ function DonationModal({ isOpen, onClose, donatingTo }) {
             </div>
           </div>
 
+          {/* Animal category dropdown */}
+          <div className="animal-selection">
+            <p>Select Animal Category to Support:</p>
+            <select
+              value={animalCategory}
+              onChange={(e) => setAnimalCategory(e.target.value)}
+              required
+              className="modal-input"
+            >
+              <option value="">-- Select a Category --</option>
+              {animalCategories.map((animal, index) => (
+                <option key={index} value={animal}>
+                  {animal}
+                </option>
+              ))}
+            </select>
+          </div>
+
           <div className="donor-info">
             <input
               type="text"
@@ -110,7 +155,9 @@ function DonationModal({ isOpen, onClose, donatingTo }) {
           </div>
 
           <button type="submit" className="btn btn-primary modal-submit-btn">
-            <span>Donate ${amount || 0} Now</span>
+            <span>
+              Donate ${amount || 0} to {animalCategory || "Animals"}
+            </span>
             <ion-icon name="heart-outline" aria-hidden="true"></ion-icon>
           </button>
         </form>
@@ -119,4 +166,4 @@ function DonationModal({ isOpen, onClose, donatingTo }) {
   );
 }
 
-export default DonationModal;
+export default HeaderModal;
